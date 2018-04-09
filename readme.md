@@ -1,9 +1,9 @@
-#Aplikacja do pobierania zasobów internetowych
+# Aplikacja do pobierania zasobów internetowych
 
-##Opis
+## Opis
 Aplikacja udostępnia API w architekturze REST do pobierania przekazanych zasobów. Zasoby są przekazywany w formie URL. Przekazanie zasobu, po prawidłowej jego walidacji, wstawia zadanie pobrania zasobu do kolejki. Odbiorca kolejki pobiera zasoby asynchronicznie w kolejności w jakiej były przekazane do aplikacji, a następnie zapisuje je do bazy danych. Ponadto możliwe jest wylistowanie pobranych zasobów, pobranie wybranego zasobu z bazy i przeszukiwanie bazy zasobów pod kątem wybranego ciągu znaków.
 
-##Serwer
+## Serwer
 Pliki konfiguracyjne i moduły zostały przygotowane dla serwera WildFly w wersji 10.0.0 z możliwością uruchomienia w wersji standalone. Przygotowana konfiguracja wymaga bazy danych Postgres z utworzoną bazą rrdb, użytkownikiem postgres i hasłem postgres. Konfiguracja kolejki JMS jest możliwa z poziomu ustawień serwera, jako system properties.<br>
 <Br>
 nazwa: <b>jms.queue</b><br>
@@ -12,9 +12,9 @@ wartość: nazwa przygotowanej kolejki w JNDI
 nazwa <b> jms.connectionFactory</b><br>
 wartość: nazwa JMSConnectionFactory
 
-##Wykorzystanie API
+## Wykorzystanie API
 
-####Pobieranie zasobów do aplikacji:<br>
+#### Pobieranie zasobów do aplikacji:<br>
 metoda: POST<br>
 url: <i>[adres_serwera]/resource-loader/rest/download</i><br>
 typ: application/xml<br>
@@ -28,7 +28,7 @@ W przeciwnym razie odesłana jest odpowiedź z kodem 400:
 <li>nie osiągalny adres zasobu</li>
 <li>nieprawidłowo sformatowany URL</li>
 
-####Pobranie listy zasobów aplikacji:<br>
+#### Pobranie listy zasobów aplikacji:<br>
 metoda: GET<br>
 url: <i>[adres_serwera]/resource-loader/rest/resource/all</i><br>
 <br>
@@ -37,14 +37,14 @@ Lista zasobów w formacie JSON:<br>
 {"id":wartosc,"url":wartosc,"timestamp":data_utworzenia}<br>
 W przypadku braku zasobów zostanie odesłana odpowiedź 400 z informacją o braku zasobów w systemie
 
-####Pobranie pojedyńczego zasobu z aplikacji<br>
+#### Pobranie pojedyńczego zasobu z aplikacji<br>
 metoda: <br>
 url: <i>[adres_serwera]/resource-loader/rest/resource/one/{id}</i><br>
 
 Odpowiedź:<br>
 Wybrany plik zasobu lub kod 400 jeśli zasób nie został znaleziony<br>
 
-####Wyszukiwanie zasobów zawierających zadany ciąg znaków:
+#### Wyszukiwanie zasobów zawierających zadany ciąg znaków:
 
 metoda: GET<br>
 url: <i>[adres_serwera]/resource-loader/rest/resource/pattern/{pattern}</i><br>
@@ -52,7 +52,7 @@ url: <i>[adres_serwera]/resource-loader/rest/resource/pattern/{pattern}</i><br>
 Odpowiedź:<br>
 Lista zasobów zawierających dany ciąg tekstu w formacie JSON lub kod 400 jeśli zasób nie został znaleziony
 
-##Konfiguracja aplikacji
+## Konfiguracja aplikacji
 Aplikacja posiada kilka parametrów konfiguracyjnych zebranych w pliku application.properties
 
 <b>downloadTimeoutSeconds</b> - liczba sekund, po których nastąpi timeout połączenia do zasobu
