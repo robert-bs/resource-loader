@@ -49,6 +49,12 @@ Wybrany plik zasobu lub kod 400 jeśli zasób nie został znaleziony<br>
 metoda: GET<br>
 url: <i>[adres_serwera]/resource-loader/rest/resource/pattern/{pattern}</i><br>
 
+W sytuacji gdy {pattern} zawiera spację lub polskie znaki powinien być kodowany jako URL:
+
+np. ciąg znaków: polski rząd<br>
+polski%20rz%C4%85d%0A
+ 
+
 Odpowiedź:<br>
 Lista zasobów zawierających dany ciąg tekstu w formacie JSON lub kod 400 jeśli zasób nie został znaleziony
 
