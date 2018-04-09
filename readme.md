@@ -4,7 +4,7 @@
 Aplikacja udostępnia API w architekturze REST do pobierania przekazanych zasobów. Zasoby są przekazywany w formie URL. Przekazanie zasobu, po prawidłowej jego walidacji, wstawia zadanie pobrania zasobu do kolejki. Odbiorca kolejki pobiera zasoby asynchronicznie w kolejności w jakiej były przekazane do aplikacji, a następnie zapisuje je do bazy danych. Ponadto możliwe jest wylistowanie pobranych zasobów, pobranie wybranego zasobu z bazy i przeszukiwanie bazy zasobów pod kątem wybranego ciągu znaków.
 
 ## Serwer
-Pliki konfiguracyjne i moduły zostały przygotowane dla serwera WildFly w wersji 10.0.0 z możliwością uruchomienia w wersji standalone. Przygotowana konfiguracja wymaga bazy danych Postgres z utworzoną bazą rrdb, użytkownikiem postgres i hasłem postgres. Konfiguracja kolejki JMS jest możliwa z poziomu ustawień serwera, jako system properties.<br>
+Pliki konfiguracyjne i moduły zostały przygotowane dla serwera WildFly w wersji 10.0.0 z możliwością uruchomienia w wersji standalone. Przygotowana konfiguracja wymaga bazy danych Postgres 9.5 z utworzoną bazą rrdb, użytkownikiem postgres i hasłem postgres. Konfiguracja kolejki JMS jest możliwa z poziomu ustawień serwera, jako system properties.<br>
 <Br>
 nazwa: <b>jms.queue</b><br>
 wartość: nazwa przygotowanej kolejki w JNDI 
