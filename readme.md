@@ -18,7 +18,7 @@ wartość: nazwa JMSConnectionFactory
 metoda: POST<br>
 url: <i>[adres_serwera]/resource-loader/rest/download</i><br>
 typ: application/xml<br>
-ciało: <pre><url\>[adres_zasobu]<url\></pre>
+ciało: <pre><url\>[adres_zasobu]</url\></pre>
 
 Odpowiedź:<br>
 W przypadku prawidłowego zarejestrowania zadania do pobrania odesłana jest odpowiedź z kodem 200.
