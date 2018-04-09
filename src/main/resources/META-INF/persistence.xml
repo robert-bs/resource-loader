@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                                http://java.sun.com/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="psuResource" transaction-type="JTA">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <jta-data-source>java:jboss/datasources/RRDS</jta-data-source>
+
+    <class> pl.rkalaska.resourceloader.entity.ResourceDTO</class>
+    <properties>
+        <property name="hibernate.hbm2ddl.auto" value="update"/>
+        <property name="hibernate.show_sql" value="true"/>
+        <property name="hibernate.transaction.flush_before_completion" value="true"/>
+        <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform" />
+        <property name="hibernate.enable_lazy_load_no_trans" value="true"/>
+    </properties>
+    </persistence-unit>
+
+</persistence>
